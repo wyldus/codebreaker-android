@@ -72,9 +72,9 @@ dependencies {
 
     //Retrofit (http/rest client) library
     def retrofitVersion = '2.9.0'
-    implementation "com.squareup.retrofit2:retrofit:$retrofitversion"
-    implementation "com.squareup.retrofit2:converter-gson:$retrofitversion"
-    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitversion"
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
 
     //okhttp library
     implementation 'com.squareup.okhttp3:logging-interceptor:4.9.1'
