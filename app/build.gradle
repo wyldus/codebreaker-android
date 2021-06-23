@@ -1,0 +1,88 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    //noinspection GroovyAssignabilityCheck
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "edu.cnm.deepdive.codebreaker"
+        minSdkVersion 26
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    //noinspection GroovyAssignabilityCheck
+    buildFeatures {
+        //noinspection GroovyAssignabilityCheck
+        viewBinding true
+    }
+}
+
+dependencies {
+    //basic android widgets & supporting classes
+    implementation 'androidx.appcompat:appcompat:1.3.0'
+    implementation 'androidx.legacy:legacy-support-core-utils:1.0.0'
+    implementation 'androidx.legacy:legacy-support-core-ui:1.0.0'
+
+    //advanced components
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+    implementation 'androidx.recyclerview:recyclerview-selection:1.1.0'
+
+    //material design components
+    implementation 'com.google.android.material:material:1.3.0'
+
+    // navigation components
+    implementation 'androidx.fragment:fragment:1.3.5'
+    implementation "androidx.navigation:navigation-fragment:$navigationVersion"
+    implementation "androidx.navigation:navigation-ui:$navigationVersion"
+
+    // lifecycle (LiveData and ViewModel) dependencies
+    def lifecycleVersion = '2.3.1'
+    implementation "androidx.lifecycle:lifecycle-runtime:$lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-livedata:$lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycleVersion"
+
+    //room components
+    def roomVersion = '2.3.0'
+    implementation "androidx.room:room-runtime:$roomVersion"
+    implementation "androidx.room:room-rxjava2:$roomVersion"
+    annotationProcessor "androidx.room:room-compiler:$roomVersion"
+
+    //Gson (JSON parser) library
+    implementation 'com.google.code.gson:gson:2.8.7'
+
+
+    //Retrofit (http/rest client) library
+    def retrofitVersion = '2.9.0'
+    implementation "com.squareup.retrofit2:retrofit:$retrofitversion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitversion"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitversion"
+
+    //okhttp library
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.1'
+
+    //stetho (inspection) library
+    implementation 'com.facebook.stetho:stetho:1.5.1'
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+}
