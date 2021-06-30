@@ -29,14 +29,14 @@ public class MainActivity extends AppCompatActivity {
     NavigationUI.setupWithNavController(navView, navController);
     GameViewModel viewModel = new ViewModelProvider(this).get(GameViewModel.class);
     getLifecycle().addObserver(viewModel);
-    viewModel.getThrowable().observe(this, (throwable) ->{
-      if (throwable != null){
+    viewModel.getThrowable().observe(this, (throwable) -> {
+      if (throwable != null) {
         //noinspection ConstantConditions
         Snackbar.make(findViewById(R.id.container), throwable.getMessage(),
             Snackbar.LENGTH_INDEFINITE).show();
       }
-    } );
-    viewModel.startGame();
+    });
+
   }
 
 }
