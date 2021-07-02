@@ -1,12 +1,12 @@
 package edu.cnm.deepdive.codebreaker.service;
 
 import android.content.Context;
+import androidx.annotation.NonNull;
 import edu.cnm.deepdive.codebreaker.model.Game;
 import edu.cnm.deepdive.codebreaker.model.Guess;
 import io.reactivex.Single;
 import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
-import org.jetbrains.annotations.NotNull;
 
 public class GameRepository {
 
@@ -43,6 +43,7 @@ public class GameRepository {
         .submitGuess(game.getId(), guess)
         .map((completedGuess) -> {
           game.getGuesses().add(completedGuess);
+          game.setSolved(completedGuess.isSolution());
           return game;
         })
         .subscribeOn(Schedulers.io());

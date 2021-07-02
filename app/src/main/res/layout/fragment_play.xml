@@ -11,29 +11,30 @@
     android:id="@+id/guess_list"
     android:layout_width="0dp"
     android:layout_height="0dp"
-    app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
     android:orientation="vertical"
     app:layout_constraintTop_toTopOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintBottom_toTopOf="@+id/guess_container"/>
+    app:layout_constraintBottom_toTopOf="@id/guess_container"/>
 
   <LinearLayout
     android:id="@+id/guess_container"
     android:layout_width="0dp"
     android:layout_height="wrap_content"
+    android:padding="@dimen/half_control_spacing"
     android:orientation="horizontal"
-    app:layout_constraintEnd_toStartOf="@id/submit"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintStart_toStartOf="parent"
-    android:padding="@dimen/half_control_spacing"
+    app:layout_constraintEnd_toStartOf="@id/submit"
     android:minHeight="48dp">
 
     <EditText
       android:id="@+id/guess"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:inputType="textCapCharacters"/>
+      android:inputType="textCapCharacters"
+      android:enabled="false"/>
 
   </LinearLayout>
 
@@ -45,7 +46,7 @@
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintTop_toTopOf="@id/guess_container"
     app:layout_constraintBottom_toBottomOf="@id/guess_container"
-    android:text="@string/submit"/>
-
+    android:text="@string/submit"
+    android:enabled="false"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
