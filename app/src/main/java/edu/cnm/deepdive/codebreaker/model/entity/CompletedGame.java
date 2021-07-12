@@ -2,13 +2,19 @@ package edu.cnm.deepdive.codebreaker.model.entity;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 import java.util.Date;
 
-@Entity(tableName = "completed_game")
+@Entity(
+    tableName = "completed_game",
+    indices = {
+        @Index(value = {"service_key"}, unique = true)
+    }
+)
 public class CompletedGame {
 
-  @PrimaryKey
+  @PrimaryKey(autoGenerate = true)
   @ColumnInfo(name = "completed_game_id")
   private long id;
 
@@ -28,4 +34,61 @@ public class CompletedGame {
 
   @ColumnInfo(name = "pool_size", index = true)
   private int poolSize;
+
+  public long getId() {
+    return id;
+  }
+
+  public void setId(long id) {
+    this.id = id;
+  }
+
+  public String getServiceKey() {
+    return serviceKey;
+  }
+
+  public void setServiceKey(String serviceKey) {
+    this.serviceKey = serviceKey;
+  }
+
+  public Date getStarted() {
+    return started;
+  }
+
+  public void setStarted(Date started) {
+    this.started = started;
+  }
+
+  public Date getCompleted() {
+    return completed;
+  }
+
+  public void setCompleted(Date completed) {
+    this.completed = completed;
+  }
+
+  public int getAttempts() {
+    return attempts;
+  }
+
+  public void setAttempts(int attempts) {
+    this.attempts = attempts;
+  }
+
+  public int getCodeLength() {
+    return codeLength;
+  }
+
+  public void setCodeLength(int codeLength) {
+    this.codeLength = codeLength;
+  }
+
+  public int getPoolSize() {
+    return poolSize;
+  }
+
+  public void setPoolSize(int poolSize) {
+    this.poolSize = poolSize;
+  }
+
 }
