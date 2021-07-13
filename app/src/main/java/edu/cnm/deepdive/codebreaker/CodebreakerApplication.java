@@ -13,7 +13,7 @@ public class CodebreakerApplication extends Application {
     CodebreakerDatabase.setContext(this);
     CodebreakerDatabase
         .getInstance()
-        .getCompletedGameDao()
+        .getGameDao()
         .delete()
         .subscribeOn(Schedulers.io())
         .subscribe();
